@@ -1,0 +1,41 @@
+import React from 'react';
+import { Hero } from './components/Layout/Hero';
+import { CareerObjective } from './components/Layout/CareerObjective';
+import { WorkExperience } from './components/Layout/WorkExperience';
+import { FeaturedProject } from './components/Layout/BentoGridSection'; // Importing the refactored component
+import { TechnicalSkills } from './components/Layout/TechnicalSkills';
+import { SoftSkillsLanguages } from './components/Layout/SoftSkillsLanguages';
+import { Certifications } from './components/Layout/Certifications';
+import { Education } from './components/Layout/Education';
+import { ContactCTA } from './components/Layout/ContactCTA';
+import { Footer } from './components/Layout/Footer';
+import { Noise } from './components/UI/Noise';
+import { MeshGradient } from './components/UI/MeshGradient';
+import { GridPattern } from './components/UI/GridPattern';
+
+export default function App() {
+  return (
+    <div className="relative min-h-screen w-full overflow-hidden selection:bg-black/10 selection:text-black transition-colors duration-300">
+      {/* Background Effects */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <MeshGradient />
+        <Noise />
+        <GridPattern />
+      </div>
+
+      {/* Main Content */}
+      <main className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 py-12 md:py-24 flex flex-col gap-20">
+        <Hero />
+        <CareerObjective />
+        <WorkExperience />
+        <FeaturedProject />
+        <TechnicalSkills />
+        <SoftSkillsLanguages />
+        <Certifications />
+        <Education />
+        <ContactCTA />
+        <Footer />
+      </main>
+    </div>
+  );
+}
