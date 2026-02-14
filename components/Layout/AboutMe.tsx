@@ -54,8 +54,11 @@ export const AboutMe: React.FC = () => {
 
       {/* Timeline Container */}
       <div className="relative">
-        {/* Horizontal Line */}
+        {/* Horizontal Line - Desktop only */}
         <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-gradient-to-r from-transparent via-zinc-300 to-transparent -translate-y-1/2 hidden md:block" />
+        
+        {/* Vertical Line - Mobile only */}
+        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-zinc-300 to-transparent -translate-x-1/2 md:hidden" />
         
         {/* Timeline Items */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-4 relative">
@@ -70,19 +73,17 @@ export const AboutMe: React.FC = () => {
                 item.position === 'bottom' ? 'md:flex-col-reverse' : ''
               }`}
             >
-              {/* Content Card */}
-              <div className={`text-center mb-4 ${item.position === 'bottom' ? 'md:mt-4 md:mb-0' : ''}`}>
-                <h3 className="font-semibold text-primary text-sm mb-2">{item.title}</h3>
-                <p className="text-xs text-secondary leading-relaxed">{item.description}</p>
-              </div>
-
-              {/* Icon Circle */}
-              <div className="relative z-10">
+              {/* Icon Circle - Always first on mobile */}
+              <div className="relative z-10 mb-4 md:mb-0">
                 <div className={`w-14 h-14 rounded-full ${item.color} flex items-center justify-center shadow-lg border-4 border-white`}>
                   <item.icon className="w-6 h-6 text-white" />
                 </div>
-                {/* Connector Line for mobile */}
-                <div className="absolute left-1/2 top-full h-8 w-0.5 bg-zinc-300 -translate-x-1/2 md:hidden" />
+              </div>
+
+              {/* Content Card - Always second on mobile */}
+              <div className={`text-center ${item.position === 'bottom' ? 'md:mb-4' : 'md:mt-4'}`}>
+                <h3 className="font-semibold text-primary text-sm mb-2">{item.title}</h3>
+                <p className="text-xs text-secondary leading-relaxed">{item.description}</p>
               </div>
             </motion.div>
           ))}
