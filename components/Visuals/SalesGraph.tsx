@@ -16,9 +16,9 @@ const data = [
 
 export const SalesGraph: React.FC = () => {
   return (
-    <div className="w-full h-full absolute inset-0 pt-12 pl-[-20px]">
+    <div className="w-full h-full pt-10">
       <ResponsiveContainer width="100%" height="100%">
-        <AreaChart data={data} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
+        <AreaChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
           <defs>
             <linearGradient id="colorRps" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3}/>
@@ -33,7 +33,7 @@ export const SalesGraph: React.FC = () => {
             dataKey="time" 
             axisLine={false} 
             tickLine={false} 
-            tick={{ fill: '#737373', fontSize: 10 }} 
+            tick={{ fill: '#737373', fontSize: 9 }} 
             dy={10}
             interval={2}
           />
