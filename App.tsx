@@ -1,5 +1,6 @@
 import React from 'react';
 import { Hero } from './components/Layout/Hero';
+import { AboutMe } from './components/Layout/AboutMe';
 import { USPCard } from './components/Layout/CareerObjective';
 import { WorkExperience } from './components/Layout/WorkExperience';
 import { FeaturedProject } from './components/Layout/BentoGridSection'; // Importing the refactored component
@@ -26,6 +27,7 @@ export default function App() {
       {/* Main Content */}
       <main className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 py-12 md:py-24 flex flex-col gap-20">
         <Hero />
+        <AboutMe />
         <USPCard />
         <WorkExperience />
         <FeaturedProject />
