@@ -80,12 +80,12 @@ export const Hero: React.FC = () => {
             disabled={isCopied}
             className={`
               relative inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-medium text-xs sm:text-sm tracking-tight 
-              transition-all duration-300 overflow-hidden whitespace-nowrap
+              transition-all duration-300 overflow-hidden whitespace-nowrap glowing-gradient-button
               ${isCopied 
                 ? 'bg-teal-500 text-white' 
                 : 'bg-white border border-border text-primary hover:bg-zinc-50'
               }
-              ${isGlowing ? 'glowing-button' : ''}
+              ${isGlowing ? 'glow-active' : ''}
             `}
           >
             {isCopied ? (
@@ -124,48 +124,50 @@ export const Hero: React.FC = () => {
         onClose={() => setShowToast(false)} 
       />
 
-      {/* Glowing Animation Styles */}
+      {/* Glowing Gradient Animation Styles */}
       <style>{`
-        @keyframes glow-rotate {
+        @keyframes gradient-flow {
           0% {
-            box-shadow: 
-              0 0 5px rgba(20, 184, 166, 0.5),
-              0 0 10px rgba(20, 184, 166, 0.3),
-              0 0 15px rgba(20, 184, 166, 0.2),
-              inset 0 0 5px rgba(20, 184, 166, 0.1);
-          }
-          25% {
-            box-shadow: 
-              2px 0 5px rgba(20, 184, 166, 0.5),
-              4px 0 10px rgba(20, 184, 166, 0.3),
-              6px 0 15px rgba(20, 184, 166, 0.2),
-              inset 2px 0 5px rgba(20, 184, 166, 0.1);
-          }
-          50% {
-            box-shadow: 
-              0 2px 5px rgba(20, 184, 166, 0.5),
-              0 4px 10px rgba(20, 184, 166, 0.3),
-              0 6px 15px rgba(20, 184, 166, 0.2),
-              inset 0 2px 5px rgba(20, 184, 166, 0.1);
-          }
-          75% {
-            box-shadow: 
-              -2px 0 5px rgba(20, 184, 166, 0.5),
-              -4px 0 10px rgba(20, 184, 166, 0.3),
-              -6px 0 15px rgba(20, 184, 166, 0.2),
-              inset -2px 0 5px rgba(20, 184, 166, 0.1);
+            background-position: 0%;
           }
           100% {
-            box-shadow: 
-              0 0 5px rgba(20, 184, 166, 0.5),
-              0 0 10px rgba(20, 184, 166, 0.3),
-              0 0 15px rgba(20, 184, 166, 0.2),
-              inset 0 0 5px rgba(20, 184, 166, 0.1);
+            background-position: 400%;
           }
         }
-        
-        .glowing-button {
-          animation: glow-rotate 1s ease-in-out infinite;
+
+        .glowing-gradient-button {
+          position: relative;
+          z-index: 1;
+          transition: all 0.3s ease;
+        }
+
+        .glowing-gradient-button::before {
+          content: "";
+          position: absolute;
+          top: -4px;
+          left: -4px;
+          right: -4px;
+          bottom: -4px;
+          z-index: -1;
+          background: linear-gradient(90deg, #0d9488, #14b8a6, #5eead4, #0d9488);
+          background-size: 400%;
+          border-radius: 12px;
+          opacity: 0;
+          filter: blur(12px);
+          transition: opacity 0.3s ease;
+        }
+
+        .glowing-gradient-button.glow-active {
+          background: linear-gradient(90deg, #0d9488, #14b8a6, #5eead4, #0d9488);
+          background-size: 400%;
+          animation: gradient-flow 3s linear infinite;
+          color: white;
+          border-color: transparent;
+        }
+
+        .glowing-gradient-button.glow-active::before {
+          opacity: 1;
+          animation: gradient-flow 3s linear infinite;
         }
       `}</style>
     </section>
