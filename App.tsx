@@ -12,7 +12,7 @@ import { ContactCTA } from './components/Layout/ContactCTA';
 import { Footer } from './components/Layout/Footer';
 import { Noise } from './components/UI/Noise';
 import { MeshGradient } from './components/UI/MeshGradient';
-import { GridPattern } from './components/UI/GridPattern';
+import { ParticleNetwork } from './components/UI/ParticleNetwork';
 
 export default function App() {
   return (
@@ -21,7 +21,7 @@ export default function App() {
       <div className="fixed inset-0 z-0 pointer-events-none">
         <MeshGradient />
         <Noise />
-        <GridPattern />
+        <ParticleNetwork />
       </div>
 
       {/* Main Content */}
