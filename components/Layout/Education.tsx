@@ -19,7 +19,7 @@ export const Education: React.FC = () => {
                 <img src="/helwan_university_logo.jpeg" alt="Helwan National University" className="h-8 w-auto object-contain rounded-full" />
                 <h3 className="text-xl font-semibold text-primary tracking-tight">Helwan National University</h3>
               </div>
-              <span className="text-sm font-mono text-zinc-500">Oct 2022 – Present</span>
+              <span className="text-sm font-mono text-zinc-500">2023 – Present</span>
             </div>
             <p className="text-base text-primary font-medium">Bachelor of Science in Computer Science and Artificial Intelligence</p>
             <p className="text-sm text-secondary">Current Status: <span className="text-emerald-500 font-medium">Third Year Student</span></p>
