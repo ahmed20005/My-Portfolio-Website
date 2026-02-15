@@ -68,10 +68,10 @@ export const Hero: React.FC = () => {
             href="/Professional CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 px-6 py-3 bg-primary text-background rounded-lg font-medium text-sm tracking-tight transition-all hover:bg-zinc-800 hover:shadow-lg"
+            className="group inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-primary text-background rounded-lg font-medium text-xs sm:text-sm tracking-tight transition-all hover:bg-zinc-800 hover:shadow-lg"
           >
-            <FileText className="w-4 h-4" />
-            View Resume
+            <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <span className="whitespace-nowrap">View Resume</span>
           </a>
           
           {/* Copy My Email Button with Glow Effect */}
@@ -79,8 +79,8 @@ export const Hero: React.FC = () => {
             onClick={copyEmail}
             disabled={isCopied}
             className={`
-              relative inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-sm tracking-tight 
-              transition-all duration-300 overflow-hidden
+              relative inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-medium text-xs sm:text-sm tracking-tight 
+              transition-all duration-300 overflow-hidden whitespace-nowrap
               ${isCopied 
                 ? 'bg-teal-500 text-white' 
                 : 'bg-white border border-border text-primary hover:bg-zinc-50'
