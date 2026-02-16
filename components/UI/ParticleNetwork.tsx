@@ -32,7 +32,7 @@ export const ParticleNetwork: React.FC = () => {
     // Initialize particles
     const particleCount = 50;
     particlesRef.current = [];
-    
+
     for (let i = 0; i < particleCount; i++) {
       particlesRef.current.push({
         x: Math.random() * canvas.width,
@@ -78,7 +78,7 @@ export const ParticleNetwork: React.FC = () => {
         // Draw connections to nearby particles
         particles.forEach((otherParticle, j) => {
           if (i === j) return;
-          
+
           const dx = particle.x - otherParticle.x;
           const dy = particle.y - otherParticle.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
@@ -113,9 +113,23 @@ export const ParticleNetwork: React.FC = () => {
 
     animate();
 
+    // Pause animation when tab is hidden, resume when visible
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        if (animationRef.current) {
+          cancelAnimationFrame(animationRef.current);
+          animationRef.current = undefined;
+        }
+      } else {
+        animate();
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
     return () => {
       window.removeEventListener("resize", resizeCanvas);
       window.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }

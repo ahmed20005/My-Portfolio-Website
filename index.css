@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ── Custom Theme ── */
+@theme {
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+
+    --color-background: #fafafa;
+    --color-surface: #ffffff;
+    --color-primary: #18181b;
+    /* Zinc 900 */
+    --color-secondary: #52525b;
+    /* Zinc 600 */
+    --color-border: #e4e4e7;
+    /* Zinc 200 */
+
+    --animate-cursor-blink: blink 1s step-start infinite;
+
+    @keyframes blink {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0;
+        }
+    }
+}
+
+/* ── Base Styles ── */
+body {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #a1a1aa;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #71717a;
+}

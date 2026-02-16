@@ -16,12 +16,12 @@ export const Hero: React.FC = () => {
       setIsCopied(true);
       setShowToast(true);
       setIsGlowing(true);
-      
+
       // Stop glowing after 2 seconds
       setTimeout(() => {
         setIsGlowing(false);
       }, 2000);
-      
+
       // Reset copied state after 2 seconds
       setTimeout(() => {
         setIsCopied(false);
@@ -40,7 +40,7 @@ export const Hero: React.FC = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="space-y-4"
         >
-          <div className="inline-flex items-center px-3 py-1 rounded-full border border-border bg-surface text-xs text-secondary font-mono tracking-tight shadow-sm">
+          <div role="status" className="inline-flex items-center px-3 py-1 rounded-full border border-border bg-surface text-xs text-secondary font-mono tracking-tight shadow-sm">
             <span className="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>
             Available for hire
           </div>
@@ -73,7 +73,7 @@ export const Hero: React.FC = () => {
             <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             <span className="whitespace-nowrap">View Resume</span>
           </a>
-          
+
           {/* Copy My Email Button with Glow Effect */}
           <button
             onClick={copyEmail}
@@ -81,8 +81,8 @@ export const Hero: React.FC = () => {
             className={`
               relative inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-medium text-xs sm:text-sm tracking-tight 
               transition-all duration-300 overflow-hidden whitespace-nowrap glowing-gradient-button
-              ${isCopied 
-                ? 'bg-teal-500 text-white' 
+              ${isCopied
+                ? 'bg-teal-500 text-white'
                 : 'bg-white border border-border text-primary hover:bg-zinc-50'
               }
               ${isGlowing ? 'glow-active' : ''}
@@ -109,19 +109,19 @@ export const Hero: React.FC = () => {
         transition={{ delay: 0.2, duration: 0.8, ease: "circOut" }}
         className="flex-1 w-full max-w-xl flex flex-col items-center gap-6"
       >
-        <img 
-          src="/my_image_cropped.png" 
-          alt="Ahmed Adel" 
+        <img
+          src="/my_image_cropped.png"
+          alt="Ahmed Adel"
           className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-border shadow-2xl"
         />
         <Terminal />
       </motion.div>
 
       {/* Toast Notification */}
-      <Toast 
-        message="Email copied! Open your email client and paste." 
-        isVisible={showToast} 
-        onClose={() => setShowToast(false)} 
+      <Toast
+        message="Email copied! Open your email client and paste."
+        isVisible={showToast}
+        onClose={() => setShowToast(false)}
       />
 
       {/* Glowing Gradient Animation Styles */}
