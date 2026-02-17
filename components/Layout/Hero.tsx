@@ -114,7 +114,9 @@ export const Hero: React.FC = () => {
           alt="Ahmed Adel"
           className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-border shadow-2xl"
         />
-        <Terminal />
+        <div className="w-full h-[300px]">
+          <Terminal />
+        </div>
       </motion.div>
 
       {/* Toast Notification */}
