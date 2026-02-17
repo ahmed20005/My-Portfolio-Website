@@ -58,3 +58,12 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #71717a;
 }
+
+/* Remove focus outline from Recharts chart elements */
+.recharts-wrapper,
+.recharts-wrapper *,
+.recharts-surface,
+.recharts-surface * {
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
