@@ -3,7 +3,7 @@ import { Hero } from './components/Layout/Hero';
 import { AboutMe } from './components/Layout/AboutMe';
 import { USPCard } from './components/Layout/CareerObjective';
 import { WorkExperience } from './components/Layout/WorkExperience';
-const FeaturedProject = lazy(() => import('./components/Layout/BentoGridSection').then(m => ({ default: m.FeaturedProject })));
+
 import { TechnicalSkills } from './components/Layout/TechnicalSkills';
 import { SoftSkillsLanguages } from './components/Layout/SoftSkillsLanguages';
 import { Certifications } from './components/Layout/Certifications';
@@ -38,9 +38,7 @@ export default function App() {
         <AboutMe />
         <USPCard />
         <WorkExperience />
-        <Suspense fallback={<div />}>
-          <FeaturedProject />
-        </Suspense>
+
         <TechnicalSkills />
         <SoftSkillsLanguages />
         <Certifications />
